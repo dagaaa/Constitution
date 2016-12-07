@@ -18,6 +18,9 @@ public class constitution {
 			
 		file.OpenFile();
 		
+		if(file.text.get(1).endsWith("\n"))
+				System.out.println("dupa");
+		
 		} catch (FileNotFoundException ex) {
             System.out.print(ex);
         } catch (NumberFormatException ex) {

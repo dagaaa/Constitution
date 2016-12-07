@@ -1,10 +1,12 @@
 package lab3;
 
-public class Chapter {
+public class Chapter extends AbstractEdit {
 
-	Article(Arguments arguments)
+	Chapter(Arguments arguments)
 	{
-		this.startOfText= "Art. " + arguments.start;
-		this.endOfText= "Art. " + arguments.finish;
+		this.startOfText= "Rozdział " + arguments.start;
+		this.endOfText= "Rozdział " + arguments.finish;
 	}
+	
+	
 }
