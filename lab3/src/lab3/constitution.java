@@ -9,17 +9,12 @@ public class constitution {
 		
 		FileReaderr file =new FileReaderr("C:\\obiektowe-lab-master\\obiektowe-lab-master\\lab8\\konstytucja.txt");
 		try{
-			Arguments arg= new  ParserArgs().parseArg(args);
+			Arguments arg= new  ParserArgs().parseArg(args);	
+			file.OpenFile();
+			System.out.println(parseText( arg, file));
 			
-				System.out.println(arg.art);
-				System.out.println(arg.start);
-				System.out.println(arg.finish);
-			
-			
-		file.OpenFile();
 		
-		if(file.text.get(1).endsWith("\n"))
-				System.out.println("dupa");
+		
 		
 		} catch (FileNotFoundException ex) {
             System.out.print(ex);
@@ -31,6 +26,15 @@ public class constitution {
             System.out.print("We have some problems with the file. Check if it's OK and try again " + ex);
             ex.printStackTrace();
         }
+		
+		
+	}
+	
+	static StringBuilder parseText(Arguments argument, FileReaderr files) throws IOException
+	{
+        if(argument.art) 
+                return new Article(argument).findArt(files);
+        else  return new Chapter(argument).findChapt(files);
 	}
 
 }

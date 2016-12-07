@@ -1,18 +1,35 @@
 package lab3;
 
+import java.io.IOException;
+
 public class Article extends AbstractEdit{
 	
 	Article(Arguments arguments)
 	{
-		this.startOfText= "Art. " + arguments.start;
-		this.endOfText= "Art. " + arguments.finish;
+		this.startOfText= "Art. " + arguments.start+".";
+		this.endOfText= "Art. " + arguments.finish+".";
 	}
 
-	private String deleteChapters(String line)
+	StringBuilder findArt(FileReaderr file) throws IOException
+	{
+		StringBuilder result = new StringBuilder("");
+		   for(String line : file.text)
+		   {
+			   if(saving(line) && !dateOrOffice(line) && !chapterHeader(line))
+				   result.append(formatLine(line));
+				   
+			   
+		   }
+		   return result;
+	}
+	
+	
+	
+	private boolean chapterHeader(String line)
 	{
 		if(line.startsWith("Rozdział") || IfAllUpper(line))
-			return "";
-		else return line;
+			return true;
+		else return false;
 	}
 	
 	private boolean IfAllUpper(String line)

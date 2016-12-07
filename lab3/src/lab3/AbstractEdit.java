@@ -8,23 +8,23 @@ public abstract class AbstractEdit {
 	
 	protected boolean saving(String line)
 	{
-		if(line.startsWith(startOfText)) 
+		if(line.equals(startOfText)) 
 			save = true;
-		if(line.startsWith(endOfText))
+		if(line.equals(endOfText))
 			save=false;
 		return save;
 	}
 	
-	protected  String deleteDateOrOffice (String line)
+	protected  boolean dateOrOffice (String line)
 	{
 		if(line.contains("Kancelaria Sejmu"))
-			return "";
+			return true;
 		for(char ch : line.toCharArray())
 		{
 			if(Character.isLetter(ch))
-				return "";
+				return false;
 		}
-		return line;
+		return true;
 	}
 	
 	protected String formatLine(String line)
