@@ -24,8 +24,10 @@ public class ParserArgs {
 				return new Arguments(arg[1], arg[1], true );
 			else throw new IllegalArgumentException("You passed wrong range of arguments");
 		}
-		else
+		else if (Integer.parseInt(arg[1])>0 && Integer.parseInt(arg[2])<244 && Integer.parseInt(arg[1])<Integer.parseInt(arg[2]) )
 			return  new Arguments(arg[1], arg[2], true);
+		else 
+			throw new IllegalArgumentException("You passed wrong range of arguments");
 	}
 	 
 
