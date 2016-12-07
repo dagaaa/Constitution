@@ -4,6 +4,6 @@ public class Parser {
 
 	public String [] parse(Arguments input)
 	{
-		
+		return null;
 	}
 }

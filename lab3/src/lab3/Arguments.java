@@ -9,7 +9,10 @@ public class Arguments {
 	public Arguments(int start, int finish, boolean art)
 	{
 		this.start= start;
+		this.finish= finish;
+		this.art=art;
 		
 	}
+	
 }
 
