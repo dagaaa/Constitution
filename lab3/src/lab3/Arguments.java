@@ -2,11 +2,11 @@ package lab3;
 
 public class Arguments {
 
-	int start;
-	int finish;
+	String start;
+	String  finish;
 	boolean  art;
 	
-	public Arguments(int start, int finish, boolean art)
+	public Arguments(String start, String finish, boolean art)
 	{
 		this.start= start;
 		this.finish= finish;

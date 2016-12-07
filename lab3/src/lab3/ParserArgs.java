@@ -1,14 +1,44 @@
 package lab3;
 
+import java.io.FileNotFoundException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 public class ParserArgs {
 
-	public Arguments parseArg(String [] arg)
+	
+	String romanNumbers [] = {"I", "II", "III", "IV","V","VI","VII","VIII","IX","X","XI","XII","XIII"};
+	public Arguments parseArg(String [] arg) throws FileNotFoundException
 	{
-		if(arg.length>4 || arg.length<3)
+		if(arg.length>3 || arg.length<2)
 			throw new IllegalArgumentException("You passed wrong number of parameters");
-		return null;
+		
+		if (!Files.exists(Paths.get(arg[0])))
+            throw new FileNotFoundException("This file doesn't exist");
+		
+		if(arg.length == 2)
+		{
+			if(isRoman(arg[1]))
+				return new Arguments(arg[1], arg[1],false);
+			else if(Integer.parseInt(arg[1])<244 && Integer.parseInt(arg[1]) >0 )
+				return new Arguments(arg[1], arg[1], true );
+			else throw new IllegalArgumentException("You passed wrong range of arguments");
+		}
+		else
+			return  new Arguments(arg[1], arg[2], true);
 	}
 	 
-	
+
+
+	private boolean isRoman(String argument)
+	{
+		for(String number : romanNumbers)
+		{
+			if(number.equals(argument))
+				return true;
+		}
+		
+		return false;
+	}
 }
  
