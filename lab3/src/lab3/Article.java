@@ -36,7 +36,7 @@ public class Article extends AbstractEdit{
 	{
 		for(char ch : line.toCharArray())
 		{
-			if(!Character.isUpperCase(ch))
+			if(!(Character.isUpperCase(ch) || Character.isSpaceChar(ch)))
 				return false;
 		}
 		return true;
