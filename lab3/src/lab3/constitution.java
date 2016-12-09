@@ -7,7 +7,7 @@ public class constitution {
 
 	public static void main(String[] args) {
 		
-		FileReaderr file =new FileReaderr("C:\\obiektowe-lab-master\\obiektowe-lab-master\\lab8\\konstytucja.txt");
+		FileReaderr file =new FileReaderr(args[0]);
 		try{
 			Arguments arg= new  ParserArgs().parseArg(args);	
 			file.OpenFile();
@@ -19,11 +19,11 @@ public class constitution {
 		} catch (FileNotFoundException ex) {
             System.out.print(ex);
         } catch (NumberFormatException ex) {
-            System.out.print("2. and optionally 3. parameter must be numbers! " + ex);
+            System.out.print("Second and Third parameters must be numbers! " + ex);
         } catch (IllegalArgumentException ex) {
             System.out.print(ex);
         } catch (IOException ex) {
-            System.out.print("We have some problems with the file. Check if it's OK and try again " + ex);
+            System.out.print("Problem with the file " + ex);
             ex.printStackTrace();
         }
 		
